@@ -67,7 +67,29 @@
                     "name":"SPAC 4"
                 }
             }
+        },
+        "idS1":{
+            "sport_id":"idS1",
+            "name":"BasketBall",
+            "courts":{
+                "idC4":{
+                    "court_id":"idC4",
+                    "name":"SPAC 5"
+                },
+
+                "idC5":{
+                    "court_id":"idC5",
+                    "name":"SPAC 6"
+                },
+
+                "idC6":{
+                    "court_id":"idC6",
+                    "name":"SPAC 7"
+                }
+            }
         }
+        
     }
+    
 
 }
