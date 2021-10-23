@@ -1,28 +1,39 @@
 {
-
     "users" : {
+        "idU0": {
+            "user_id": "idU0",
+            "events": [
+                "idE1",
+                "idE2"
+            ]
+        },
+        "idU1": {
+            "user_id": "idU1",
+            "events": [
+                "idE1",
+                "idE0",
+                "idE5"
+            ]
+        }
     },
 
     "events" : {
-
         "idE0":{
             "event_id":"idE0",
             "date":"1635005850",
             "sport_id":"idS0",
             "court_id":"idC0",
             "capacity":"",
-            "player_count": 2
+            "player_count": 1
         },
-
         "idE1":{
             "event_id":"idE1",
             "date":"1635005850",
             "sport_id":"idS0",
             "court_id":"idC1",
             "capacity":"",
-            "player_count": 3
+            "player_count": 2
         },
-
         "idE2":{
             "event_id":"idE2",
             "date":"1635005850",
@@ -31,16 +42,30 @@
             "capacity":"",
             "player_count": 1
         },
-
-        "idE3":{
-            "event_id":"idE3",
+        "idE4":{
+            "event_id":"idE4",
             "date":"1635005850",
-            "sport_id":"idS0",
-            "court_id":"idC3",
+            "sport_id":"idS1",
+            "court_id":"idC0",
             "capacity":"",
-            "player_count": 2
+            "player_count": 0
+        },
+        "idE5":{
+            "event_id":"idE5",
+            "date":"1635005850",
+            "sport_id":"idS1",
+            "court_id":"idC1",
+            "capacity":"",
+            "player_count": 1
+        },
+        "idE6":{
+            "event_id":"idE6",
+            "date":"1635005850",
+            "sport_id":"idS1",
+            "court_id":"idC2",
+            "capacity":"",
+            "player_count": 0
         }
-        
     },
 
     "sports":{
@@ -72,18 +97,16 @@
             "sport_id":"idS1",
             "name":"BasketBall",
             "courts":{
-                "idC4":{
-                    "court_id":"idC4",
+                "idC0":{
+                    "court_id":"idC0",
                     "name":"SPAC 5"
                 },
-
-                "idC5":{
-                    "court_id":"idC5",
+                "idC1":{
+                    "court_id":"idC1",
                     "name":"SPAC 6"
                 },
-
-                "idC6":{
-                    "court_id":"idC6",
+                "idC2":{
+                    "court_id":"idC2",
                     "name":"SPAC 7"
                 }
             }
@@ -91,5 +114,4 @@
         
     }
     
-
 }
