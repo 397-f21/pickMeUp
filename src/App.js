@@ -42,7 +42,7 @@ const filterEvents = (events, sport, court, date) => {
 function App() {
   const [data, loading, error] = useData("/")
   const [user, setUser] = useState("idU0")
-  const [sport, setSport] = useState('')
+  const [sport, setSport] = useState('idS1')
   const [court, setCourt] = useState('')
   const [date, setDate] = useState('')
 
@@ -51,8 +51,33 @@ function App() {
   return (
     <div>
       <h1>PickMeUp</h1>
+
+      <div className="form-group p-2">
+        <label>Sport</label>
+        <select className="form-select" onChange={ ev => {setCourt(""); setSport(ev.target.value)}} value={sport}>
+          {Object.values(data.sports).map(sport_item => (
+            <option value={sport_item.sport_id} key={sport_item.sport_id}>
+              {sport_item.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div className="form-group p-2">
+        <label>Court</label>
+        <select className="form-select" onChange={ ev => setCourt(ev.target.value)} value={court}>
+        <option value="" >All</option>
+          {Object.values(data.sports[sport].courts).map(court_item => (
+            <option value={court_item.court_id} key={court_item.court_id}>
+              {court_item.name}
+            </option>
+          ))}
+        </select>
+      </div>
+
+
       {filterEvents(Object.values(data.events), sport, court, date).map(event => (
-       <div className = 'col-lg-8 card m-2 p-2 mx-auto border-dark'> 
+       <div className = 'col-lg-8 card m-2 p-2 mx-auto border-dark' key = {event.event_id}> 
           <div className = 'card-body d-flex align-items-center justify-content-between'>
           <div>
               <div className="card-title">
