@@ -62,9 +62,11 @@ function App() {
       )}
       
 
+      <div className="text-center">
       <button className="btn btn-primary" onClick={handleShowFilter}>
         Filter Events
       </button>
+      </div>
 
       {showFilter && (
         <EventFilterModal show={showFilter}
