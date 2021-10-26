@@ -50,8 +50,6 @@ function App() {
   if (loading) return <h1>loading...</h1>
   return (
     <div>
-      <h1>PickMeUp</h1>
-
       <div className="form-group p-2">
         <label>Sport</label>
         <select className="form-select" onChange={ ev => {setCourt(""); setSport(ev.target.value)}} value={sport}>
