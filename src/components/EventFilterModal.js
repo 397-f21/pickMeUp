@@ -4,15 +4,29 @@ import { useState } from "react";
 const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDate, handleClose }) => {
   const [localSport, setLocalSport] = useState(sport);
   const [localCourt, setLocalCourt] = useState(court);
-  const [localDate, setLocalDate] = useState(date);
+  const [localDate, setLocalDate] = useState(
+    date && new Date(date*1000).toLocaleDateString().split(',')[0].split('/').reverse().join('-') );
+
+
+
 
   const applyFilter = () => {
     setSport(localSport);
     setCourt(localCourt);
-    setDate(localDate);
+    const date = new Date(0);
+    const splitDate = localDate.split('-')
+    
+    date.setDate(splitDate[2]);
+    //because of zero indexing 
+    date.setMonth(Number.parseInt(splitDate[1]) - 1);
+    date.setFullYear(splitDate[0]);
+
+    console.log("Date in applyFilter: "+ date.valueOf()/1000);
+    setDate(date.valueOf()/1000);
     handleClose();
   };
 
+  console.log("Date: "+localDate )
   return (
     <Modal show={true} onHide={handleClose} animation={false}>
       <Modal.Header>
@@ -44,6 +58,12 @@ const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDat
             ))}
           </select>
         </div>
+
+        <div className="form-group p-2">
+          <label>Date</label>
+          <input className="form-control" id="dueDate" type="date" onChange={ ev => setLocalDate(ev.target.value)} value={ localDate } />
+        </div>
+       
 
       </Modal.Body>
       

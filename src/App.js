@@ -43,7 +43,7 @@ function App() {
   const [user, setUser] = useState("idU0")
   const [sport, setSport] = useState('idS1')
   const [court, setCourt] = useState('')
-  const [date, setDate] = useState('')
+  const [date, setDate] = useState()
 
   const [showFilter, setShowFilter] = useState(false);
 
