@@ -4,29 +4,39 @@ import { useState } from "react";
 const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDate, handleClose }) => {
   const [localSport, setLocalSport] = useState(sport);
   const [localCourt, setLocalCourt] = useState(court);
+  /* convert epoch to year-month-day */
   const [localDate, setLocalDate] = useState(
     date && new Date(date*1000).toLocaleDateString().split(',')[0].split('/').reverse().join('-') );
-
-
-
 
   const applyFilter = () => {
     setSport(localSport);
     setCourt(localCourt);
-    const date = new Date(0);
-    const splitDate = localDate.split('-')
-    
-    date.setDate(splitDate[2]);
-    //because of zero indexing 
-    date.setMonth(Number.parseInt(splitDate[1]) - 1);
-    date.setFullYear(splitDate[0]);
 
-    console.log("Date in applyFilter: "+ date.valueOf()/1000);
-    setDate(date.valueOf()/1000);
+    const dateInput = document.querySelector("#filterDate").value;
+    // format: yyy-mm-dd
+    // console.log("from query"+dateInput);
+    if (dateInput) {
+      const dateObj = new Date(0);
+      const splitDate = dateInput.split('-')
+      
+      dateObj.setDate(splitDate[2]);
+      //because of zero indexing 
+      dateObj.setMonth(Number.parseInt(splitDate[1]) - 1);
+      dateObj.setFullYear(splitDate[0]);
+
+      // console.log("dateObj in apply: "+dateObj);
+      // console.log("Date in applyFilter: "+ dateObj.valueOf()/1000);
+      setDate(dateObj.valueOf()/1000);
+    }
+    else {
+      setDate("");
+    }
+
     handleClose();
   };
 
-  console.log("Date: "+localDate )
+  // console.log("Date: "+localDate )
+  // if (date) console.log("Date as toString "+(new Date(date*1000).toISOString().substr(0,10)));
   return (
     <Modal show={true} onHide={handleClose} animation={false}>
       <Modal.Header>
@@ -61,7 +71,8 @@ const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDat
 
         <div className="form-group p-2">
           <label>Date</label>
-          <input className="form-control" id="dueDate" type="date" onChange={ ev => setLocalDate(ev.target.value)} value={ localDate } />
+          {/* year-month-day */}
+          <input className="form-control" id="filterDate" type="date" defaultValue={date && (new Date(date*1000).toISOString().substr(0,10))}/>
         </div>
        
 
@@ -71,7 +82,7 @@ const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDat
         <button className='btn btn-secondary' onClick={handleClose}>
           Close
         </button>
-        <button className='btn btn-primary' onClick={applyFilter}>
+        <button className='btn btn-primary' onClick={() => applyFilter()}>
           Save Changes
         </button>
       </Modal.Footer>
