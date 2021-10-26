@@ -1,5 +1,7 @@
 import { updateDataByPath, useData, } from "./firebase";
 import {useState} from 'react'
+import EventFilterModal from "./components/EventFilterModal";
+import { FcSportsMode } from "react-icons/fc";
 
 
 const join = (player_count, event_id,user,userEvents) => {
@@ -35,9 +37,6 @@ const filterEvents = (events, sport, court, date) => {
   }
   return filteredEvents.sort((e1, e2) => e1.date - e2.date)
 }
-// const SportButton = ({sport, selected})
-
-
 
 function App() {
   const [data, loading, error] = useData("/")
@@ -46,55 +45,65 @@ function App() {
   const [court, setCourt] = useState('')
   const [date, setDate] = useState('')
 
+  const [showFilter, setShowFilter] = useState(false);
+
+  const handleCloseFilter = () => setShowFilter(false);
+  const handleShowFilter = () => setShowFilter(true);
+
   if (error) return <h1>{error}</h1>
   if (loading) return <h1>loading...</h1>
   return (
-    <div>
-      <div className="form-group p-2">
-        <label>Sport</label>
-        <select className="form-select" onChange={ ev => {setCourt(""); setSport(ev.target.value)}} value={sport}>
-          {Object.values(data.sports).map(sport_item => (
-            <option value={sport_item.sport_id} key={sport_item.sport_id}>
-              {sport_item.name}
-            </option>
-          ))}
-        </select>
-      </div>
+    <div className="container">
+     
+      {sport && (
+        <h4 className='text-center'>
+          {data.sports[sport].name} Events
+        </h4>
+      )}
+      
 
-      <div className="form-group p-2">
-        <label>Court</label>
-        <select className="form-select" onChange={ ev => setCourt(ev.target.value)} value={court}>
-        <option value="" >All</option>
-          {Object.values(data.sports[sport].courts).map(court_item => (
-            <option value={court_item.court_id} key={court_item.court_id}>
-              {court_item.name}
-            </option>
-          ))}
-        </select>
-      </div>
+      <button className="btn btn-primary" onClick={handleShowFilter}>
+        Filter Events
+      </button>
+
+      {showFilter && (
+        <EventFilterModal show={showFilter}
+            handleClose={handleCloseFilter}
+            data={data}
+            sport={sport}
+            setSport={setSport}
+            court={court}
+            setCourt={setCourt}
+            date={date}
+            setDate={setDate} />
+      )}
+
 
 
       {filterEvents(Object.values(data.events), sport, court, date).map(event => (
-       <div className = 'col-lg-8 card m-2 p-2 mx-auto border-dark' key = {event.event_id}> 
+       <div className = 'col-lg-8 card m-2 p-1 mx-auto border-dark' key = {event.event_id}> 
           <div className = 'card-body d-flex align-items-center justify-content-between'>
           <div>
-              <div className="card-title">
+              <div className="fw-bold">
                 { data.sports[event.sport_id].name }
               </div>
               <div>
-                {data.sports[event.sport_id].courts[event.court_id].name}
+                { data.sports[event.sport_id].courts[event.court_id].name }
               </div>
               <div className="card-text">
-                {(new Date(event.date*1000)).toLocaleString()}<br/> 
+                { (new Date(event.date*1000)).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}) }
               </div>
           </div>
-          <div>
-            <span style={{display:'inline-block'}}>{event.player_count}</span>
+          <div className="d-flex flex-nowrap flex-column align-items-center">
+            <div className="mb-1">
+              { event.player_count }
+              <FcSportsMode style={{height: '1.5em', width: '1.5em'}}/>
+            </div>
             {( data.users[user].events && data.users[user].events.includes(event.event_id)) ? (
-              <button className='btn btn-warning bg-opacity-25 m-4' style={{width:"6em"}} onClick={ (ev) => leave(event.player_count, event.event_id, user, data.users[user].events) } >Leave</button>
+              <button className='btn btn-warning bg-opacity-25' style={{width:"6em"}} onClick={ (ev) => leave(event.player_count, event.event_id, user, data.users[user].events) } >Leave</button>
             ) :
             (
-              <button className='btn btn-success bg-opacity-25 m-4' style={{width:"6em"}} onClick={ (ev) => join(event.player_count, event.event_id, user, data.users[user].events) } >Join</button>
+              <button className='btn btn-success bg-opacity-25' style={{width:"6em"}} onClick={ (ev) => join(event.player_count, event.event_id, user, data.users[user].events) } >Join</button>
             )
           
           }
