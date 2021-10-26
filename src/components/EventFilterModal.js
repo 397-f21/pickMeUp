@@ -4,9 +4,6 @@ import { useState } from "react";
 const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDate, handleClose }) => {
   const [localSport, setLocalSport] = useState(sport);
   const [localCourt, setLocalCourt] = useState(court);
-  /* convert epoch to year-month-day */
-  const [localDate, setLocalDate] = useState(
-    date && new Date(date*1000).toLocaleDateString().split(',')[0].split('/').reverse().join('-') );
 
   const applyFilter = () => {
     setSport(localSport);
@@ -35,7 +32,6 @@ const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDat
     handleClose();
   };
 
-  // console.log("Date: "+localDate )
   // if (date) console.log("Date as toString "+(new Date(date*1000).toISOString().substr(0,10)));
   return (
     <Modal show={true} onHide={handleClose} animation={false}>
