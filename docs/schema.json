@@ -48,31 +48,31 @@
             "sport_id":"idS1",
             "court_id":"idC0",
             "capacity":"",
-            "player_count": 0
+            "player_count": 8
         },
         "idE5":{
             "event_id":"idE5",
-            "date":"1635453600",
+            "date":"1635372000",
             "sport_id":"idS1",
             "court_id":"idC1",
             "capacity":"",
-            "player_count": 1
+            "player_count": 4
         },
         "idE6":{
             "event_id":"idE6",
-            "date":"1635453600",
+            "date":"1635375600",
             "sport_id":"idS1",
-            "court_id":"idC2",
+            "court_id":"idC0",
             "capacity":"",
-            "player_count": 0
+            "player_count": 9
         },
         "idE7":{
             "event_id":"idE7",
             "date":"1635355800",
             "sport_id":"idS1",
-            "court_id":"idC2",
+            "court_id":"idC3",
             "capacity":"",
-            "player_count": 0
+            "player_count": 3
         },
         "idE8":{
             "event_id":"idE8",
@@ -80,15 +80,15 @@
             "sport_id":"idS1",
             "court_id":"idC2",
             "capacity":"",
-            "player_count": 0
+            "player_count": 1
         },
         "idE9":{
             "event_id":"idE9",
-            "date":"1635453600",
+            "date":"1635375600",
             "sport_id":"idS1",
-            "court_id":"idC2",
+            "court_id":"idC3",
             "capacity":"",
-            "player_count": 0
+            "player_count": 4
         }
 
     },
@@ -133,6 +133,10 @@
                 "idC2":{
                     "court_id":"idC2",
                     "name":"Blomquist"
+                },
+                "idC3":{
+                    "court_id":"idC3",
+                    "name":"PLEX"
                 }
             }
         }
