@@ -67,7 +67,7 @@
             "player_count": 0
         },
         "idE7":{
-            "event_id":"idE6",
+            "event_id":"idE7",
             "date":"1635355800",
             "sport_id":"idS1",
             "court_id":"idC2",
@@ -75,7 +75,7 @@
             "player_count": 0
         },
         "idE8":{
-            "event_id":"idE6",
+            "event_id":"idE8",
             "date":"1635370200",
             "sport_id":"idS1",
             "court_id":"idC2",
@@ -83,7 +83,7 @@
             "player_count": 0
         },
         "idE9":{
-            "event_id":"idE6",
+            "event_id":"idE9",
             "date":"1635453600",
             "sport_id":"idS1",
             "court_id":"idC2",
@@ -120,7 +120,7 @@
         },
         "idS1":{
             "sport_id":"idS1",
-            "name":"BasketBall",
+            "name":"Basketball",
             "courts":{
                 "idC0":{
                     "court_id":"idC0",
