@@ -1,26 +1,50 @@
-import { useData } from "./firebase";
-
+import { updateDataByPath, useData, } from "./firebase";
+import {useState} from 'react'
+import EventFilterModal from "./components/EventFilterModal";
+import EventList from "./components/EventList";
 
 function App() {
   const [data, loading, error] = useData("/")
+  const [user, setUser] = useState("idU0")
+  const [sport, setSport] = useState('idS1')
+  const [court, setCourt] = useState('')
+  const [date, setDate] = useState()
+
+  const [showFilter, setShowFilter] = useState(false);
+
+  const handleCloseFilter = () => setShowFilter(false);
+  const handleShowFilter = () => setShowFilter(true);
+
   if (error) return <h1>{error}</h1>
   if (loading) return <h1>loading...</h1>
   return (
-    <div>
-      <h1>PickMeUp</h1>
-      {Object.values(data.events).map(event => (
-       <div className = 'col-lg-8 card m-2 p-2 mx-auto border-dark'> 
-         {event.event_id}
-         <div className = 'card-body'>
-            <div className="card-title">
-              { data.sports[event.sport_id].name }
-            </div>
-          <div className="card-text">
-            {(new Date(event.date*1000)).toLocaleString()}
-          </div>
-         </div>
-       </div> 
-      ))}
+    <div className="container">
+     
+      {sport && (
+        <h4 className='text-center'>
+          {data.sports[sport].name} Events
+        </h4>
+      )}
+
+      <div className="text-center">
+      <button className="btn btn-primary" onClick={handleShowFilter}>
+        Filter Events
+      </button>
+      </div>
+
+      {showFilter && (
+        <EventFilterModal show={showFilter}
+            handleClose={handleCloseFilter}
+            data={data}
+            sport={sport}
+            setSport={setSport}
+            court={court}
+            setCourt={setCourt}
+            date={date}
+            setDate={setDate} />
+      )}
+
+      <EventList data={data} sport={sport} court={court} date={date} user={user} />
     </div>
   );
 }
