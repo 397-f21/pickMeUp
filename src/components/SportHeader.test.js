@@ -7,5 +7,5 @@ test('renders sport name', () => {
     <SportHeader data={data} sport={'idS1'}/>
   )
   const nameElement = screen.getByTestId('sport-name');
-  expect(nameElement.textContent.match(/basketball/i).toBeTruthy);
+  expect(nameElement.textContent.match(/basketball/i)).toBeTruthy();
 });
