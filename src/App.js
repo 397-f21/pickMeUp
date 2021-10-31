@@ -3,11 +3,12 @@ import {useState} from 'react'
 import EventFilterModal from "./components/EventFilterModal";
 import EventList from "./components/EventList";
 import SportHeader from "./components/SportHeader";
+import SportSelection from "./components/SportSelection";
 
 function App() {
   const [data, loading, error] = useData("/")
   const [user, setUser] = useState("idU0")
-  const [sport, setSport] = useState('idS1')
+  const [sport, setSport] = useState('')
   const [court, setCourt] = useState('')
   const [date, setDate] = useState()
 
@@ -18,6 +19,8 @@ function App() {
 
   if (error) return <h1>{error}</h1>
   if (loading) return <h1>loading...</h1>
+  if (!sport) return <SportSelection sports ={data.sports} setSport = {setSport}/> 
+
   return (
     <div className="container">
      
