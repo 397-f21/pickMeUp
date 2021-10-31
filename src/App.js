@@ -1,4 +1,4 @@
-import { updateDataByPath, useData, } from "./firebase";
+import { useUserState, useData } from "./firebase";
 import {useState} from 'react'
 import EventFilterModal from "./components/EventFilterModal";
 import EventList from "./components/EventList";
@@ -7,7 +7,7 @@ import SportSelection from "./components/SportSelection";
 
 function App() {
   const [data, loading, error] = useData("/")
-  const [user, setUser] = useState("idU0")
+  const [user] = useUserState();
   const [sport, setSport] = useState('')
   const [court, setCourt] = useState('')
   const [date, setDate] = useState()
@@ -44,7 +44,7 @@ function App() {
             setDate={setDate} />
       )}
 
-      <EventList data={data} sport={sport} court={court} date={date} user={user} />
+      <EventList data={data} sport={sport} court={court} date={date} user={user && user.uid} />
     </div>
   );
 }
