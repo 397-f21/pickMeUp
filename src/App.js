@@ -2,6 +2,7 @@ import { updateDataByPath, useData, } from "./firebase";
 import {useState} from 'react'
 import EventFilterModal from "./components/EventFilterModal";
 import EventList from "./components/EventList";
+import SportHeader from "./components/SportHeader";
 
 function App() {
   const [data, loading, error] = useData("/")
@@ -20,11 +21,7 @@ function App() {
   return (
     <div className="container">
      
-      {sport && (
-        <h4 className='text-center'>
-          {data.sports[sport].name} Events
-        </h4>
-      )}
+      {sport && (<SportHeader data={data} sport={sport} />)}
 
       <div className="text-center">
       <button className="btn btn-primary" onClick={handleShowFilter}>
