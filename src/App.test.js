@@ -1,11 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import SportHeader from './components/SportHeader';
-import data from '../docs/schema.json';
+import App from './App';
 
-test('renders sport name', () => {
-  const sportHeader = render(
-    <SportHeader data={data} sport={'idS1'}/>
-  )
-  const nameElement = screen.getByTestId('sport-name');
-  expect(nameElement.textContent.match(/basketball/i).toBeTruthy);
-});
+/*test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});*/
