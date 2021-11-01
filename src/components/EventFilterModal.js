@@ -1,5 +1,6 @@
 import { Modal } from "react-bootstrap";
 import { useState } from "react";
+import { mount } from 'enzyme';
 
 const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDate, handleClose }) => {
   const [localSport, setLocalSport] = useState(sport);
