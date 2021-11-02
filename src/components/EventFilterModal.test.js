@@ -53,19 +53,4 @@ test('Datepicker has default value if date filter is already on', () => {
   expect(eventfiltermodal.getByTestId('filterDate').value).toEqual('2021-11-01')
 });
 
-// import { render } from '@testing-library/react';
-// import EventList from './EventList';
-// import data from '../../docs/schema.json';
 
-// test('show only tennis events when filtering by tennis', () => {
-//   const eventlist = render(
-//     <EventList 
-//       data={data} 
-//       sport="idS0"s
-//       court="" 
-//       date="" 
-//       user="idU0" />
-//   );
-
-//   expect(eventlist.getAllByTestId('event_name').every(event => event.textContent.match(/tennis/i))).toBeTruthy();
-// });
