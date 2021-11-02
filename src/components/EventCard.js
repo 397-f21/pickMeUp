@@ -1,6 +1,7 @@
 import { FcSportsMode } from "react-icons/fc";
 import { updateDataByPath } from "../firebase";
 
+
 const join = (player_count, event_id,user,userEvents) => {
     if (!userEvents){
       userEvents = []
@@ -25,7 +26,7 @@ const EventCard = ({data, event, user}) => (
         <div className="fw-bold" data-testid="event_name">
           { data.sports[event.sport_id].name }
         </div>
-        <div>
+        <div data-testid="court_name">
           { data.sports[event.sport_id].courts[event.court_id].name }
         </div>
         <div className="card-text">
@@ -33,15 +34,15 @@ const EventCard = ({data, event, user}) => (
         </div>
       </div>
       <div className="d-flex flex-nowrap flex-column align-items-center">
-        <div className="mb-1">
+        <div data-testid ="player_count" className="mb-1">
           { event.player_count }
           <FcSportsMode style={{height: '1.5em', width: '1.5em'}}/>
         </div>
         {
-        ( user && data.users[user] && data.users[user].events && data.users[user].events.includes(event.event_id)) ? (
-          <button className='btn btn-warning bg-opacity-25' style={{width:"6em"}} onClick={ (ev) => leave(event.player_count, event.event_id, user, data.users[user].events) } >Leave</button>
+        ( data.users[user].events && data.users[user].events.includes(event.event_id)) ? (
+          <button data-testid="leave_button" className='btn btn-warning bg-opacity-25' style={{width:"6em"}} onClick={ (ev) => leave(event.player_count, event.event_id, user, data.users[user].events) } >Leave</button>
         ) : (
-          <button className='btn btn-success bg-opacity-25' style={{width:"6em"}} onClick={ (ev) => (!user) ? alert("Please log in to join the event") : join(event.player_count, event.event_id, user, data.users[user] && data.users[user].events) } >Join</button>
+          <button data-testid="join_button" className='btn btn-success bg-opacity-25' style={{width:"6em"}} onClick={ (ev) => join(event.player_count, event.event_id, user, data.users[user].events) } >Join</button>
         )
         }
       </div>
