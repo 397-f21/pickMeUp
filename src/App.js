@@ -1,12 +1,14 @@
-import { updateDataByPath, useData, } from "./firebase";
+import { useUserState, useData } from "./firebase";
 import {useState} from 'react'
 import EventFilterModal from "./components/EventFilterModal";
 import EventList from "./components/EventList";
+import SportHeader from "./components/SportHeader";
+import SportSelection from "./components/SportSelection";
 
 function App() {
   const [data, loading, error] = useData("/")
-  const [user, setUser] = useState("idU0")
-  const [sport, setSport] = useState('idS1')
+  const [user] = useUserState();
+  const [sport, setSport] = useState('')
   const [court, setCourt] = useState('')
   const [date, setDate] = useState()
 
@@ -17,14 +19,12 @@ function App() {
 
   if (error) return <h1>{error}</h1>
   if (loading) return <h1>loading...</h1>
+  if (!sport) return <SportSelection sports ={data.sports} setSport = {setSport}/> 
+
   return (
     <div className="container">
      
-      {sport && (
-        <h4 className='text-center'>
-          {data.sports[sport].name} Events
-        </h4>
-      )}
+      {sport && (<SportHeader data={data} sport={sport} />)}
 
       <div className="text-center">
       <button className="btn btn-primary" onClick={handleShowFilter}>
@@ -44,7 +44,7 @@ function App() {
             setDate={setDate} />
       )}
 
-      <EventList data={data} sport={sport} court={court} date={date} user={user} />
+      <EventList data={data} sport={sport} court={court} date={date} user={user && user.uid} />
     </div>
   );
 }
