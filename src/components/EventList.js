@@ -11,9 +11,11 @@ const filterEvents = (events, sport, court, date) => {
   if (date) {
     const filterDate = (new Date(date*1000)).toLocaleDateString();
     filteredEvents = filteredEvents.filter((event) => (new Date(event.date*1000)).toLocaleDateString() === filterDate);
+    console.log(date)
   }
   
   return filteredEvents.sort((e1, e2) => e1.date - e2.date);
+
 }
 
 const EventList = ({data, sport, court, date, user}) => (
