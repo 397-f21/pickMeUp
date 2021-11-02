@@ -31,41 +31,41 @@
 
 // //   });
 // // });
-// import { render } from '@testing-library/react';
-// import EventFilterModal from './EventFilterModal';
-// import dateInput from './EventFilterModal'
-// import data from '../../docs/schema.json';
-
-// test('Datepicker has default value if date filter is already on', () => {
-//   const eventfiltermodal = render(
-//     <EventFilterModal 
-//       data={data}
-//       sport='idE0'
-//       setSport=''
-//       court=''
-//       setCourt=''
-//       date='1635707232'
-//       setDate= ''
-//       handleClose= ''
-//        />
-//   );
-
-//   expect(eventfiltermodal.getByTestId('filterDate').value).toEqual('31102021')
-// });
-
 import { render } from '@testing-library/react';
-import EventList from './EventList';
+import EventFilterModal from './EventFilterModal';
+import dateInput from './EventFilterModal'
 import data from '../../docs/schema.json';
 
-test('show only tennis events when filtering by tennis', () => {
-  const eventlist = render(
-    <EventList 
-      data={data} 
-      sport="idS0"
-      court="" 
-      date="" 
-      user="idU0" />
+test('Datepicker has default value if date filter is already on', () => {
+  const eventfiltermodal = render(
+    <EventFilterModal 
+      data={data}
+      sport='idS0'
+      setSport=''
+      court=''
+      setCourt=''
+      date='1635810432'
+      setDate= ''
+      handleClose= ''
+       />
   );
 
-  expect(eventlist.getAllByTestId('event_name').every(event => event.textContent.match(/tennis/i))).toBeTruthy();
+  expect(eventfiltermodal.getByTestId('filterDate').value).toEqual('2021-11-01')
 });
+
+// import { render } from '@testing-library/react';
+// import EventList from './EventList';
+// import data from '../../docs/schema.json';
+
+// test('show only tennis events when filtering by tennis', () => {
+//   const eventlist = render(
+//     <EventList 
+//       data={data} 
+//       sport="idS0"s
+//       court="" 
+//       date="" 
+//       user="idU0" />
+//   );
+
+//   expect(eventlist.getAllByTestId('event_name').every(event => event.textContent.match(/tennis/i))).toBeTruthy();
+// });

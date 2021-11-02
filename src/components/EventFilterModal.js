@@ -69,7 +69,7 @@ const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDat
         <div className="form-group p-2">
           <label>Date</label>
           {/* year-month-day */}
-          <input className="form-control" id="filterDate" type="date" defaultValue={date && (new Date(date*1000).toISOString().substr(0,10))}/>
+          <input className="form-control" id="filterDate" data-testid = "filterDate" type="date" defaultValue={date && (new Date(date*1000).toISOString().substr(0,10))}/>
         </div>
        
 
