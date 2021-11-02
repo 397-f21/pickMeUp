@@ -35,9 +35,12 @@ function App() {
       <button className="btn btn-primary" onClick={handleShowFilter}>
         Filter Events
       </button>
-      <button className="btn btn-primary" onClick={handleShowEventCreate}>
-        Create Event
-      </button>
+      {user && (
+        <button className="btn btn-primary mx-2" onClick={() => handleShowEventCreate()}>
+          Create Event
+        </button>
+      )}
+      
       </div>
 
       {showFilter && (
