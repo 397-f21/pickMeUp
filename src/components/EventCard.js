@@ -6,7 +6,7 @@ const join = (player_count, event_id,user,userEvents) => {
     if (!userEvents){
       userEvents = []
     }
-    updateDataByPath(`/users/${user}/`, {events: [...userEvents, event_id]})
+    updateDataByPath(`/users/${user}/`, {user_id: user, events: [...userEvents, event_id]})
     updateDataByPath(`/events/${event_id}/`, {player_count:player_count+1})
       
   }
