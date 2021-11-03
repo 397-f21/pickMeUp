@@ -33,7 +33,7 @@ const EventCard = ({data, event, user}) => (
         </div>
       </div>
       <div className="d-flex flex-nowrap flex-column align-items-center">
-        <div className="mb-1">
+        <div className="mb-1" data-testid='event-card-player-count'>
           { event.player_count }
           <FcSportsMode style={{height: '1.5em', width: '1.5em'}}/>
         </div>
