@@ -40,11 +40,12 @@ const pushEvent =  ( event ) => {
 }
 
 
-const EventCreateModal = ({data, event, user, handleClose, sport }) => {
+const EventCreateModal = ({data, event, user, handleClose, sport}) => {
   const [localSport, setLocalSport] =  useState(sport);
   const [localCourt, setLocalCourt] =  useState("");
   const [localDate, setLocalDate] =  useState("");
   const [localTime, setLocalTime] =  useState("");
+  const [localCapacity, setLocalCapacity] =  useState("");
 
 
   const createAndJoinEvent = () => {
@@ -155,6 +156,11 @@ const EventCreateModal = ({data, event, user, handleClose, sport }) => {
               </option> 
             )) }
           </select>
+        </div>
+
+        <div className="form-group p-2">
+          <label>Capacity</label>
+          <input type="number" className="form-control" defaultValue="2" min="2" onChange={ev => setLocalCapacity(ev.target.value)}/>
         </div>
        
       </Modal.Body>
