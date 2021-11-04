@@ -25,7 +25,7 @@ const EventCard = ({data, event, user}) => (
         <div className="fw-bold" data-testid="event_name">
           { data.sports[event.sport_id].name }
         </div>
-        <div>
+        <div data-testid="event_court">
           { data.sports[event.sport_id].courts[event.court_id].name }
         </div>
         <div className="card-text">
