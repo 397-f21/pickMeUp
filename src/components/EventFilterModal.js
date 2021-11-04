@@ -42,11 +42,13 @@ const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDat
         
         <div className="form-group p-2">
           <label>Sport</label>
-          <select className="form-select" 
+          <select 
+              className="form-select" 
               onChange={ ev => {setLocalCourt(""); setLocalSport(ev.target.value)} } 
-              value={ localSport } >
+              value={ localSport } 
+              data-testid="filter_input_sport">
             {Object.values(data.sports).map(sport_item => (
-              <option value={sport_item.sport_id} key={sport_item.sport_id}>
+              <option key={sport_item.sport_id} value={sport_item.sport_id} >
                 {sport_item.name}
               </option>
             ))}
@@ -55,10 +57,14 @@ const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDat
 
         <div className="form-group p-2">
           <label>Court</label>
-          <select className="form-select" onChange={ ev => setLocalCourt(ev.target.value)} value={localCourt}>
-          <option value="" >All</option>
+          <select 
+              className="form-select" 
+              onChange={ ev => setLocalCourt(ev.target.value)} 
+              value={localCourt} 
+              data-testid="filter_input_court">
+            <option value="" >All</option>
             {Object.values(data.sports[localSport].courts).map(court_item => (
-              <option value={court_item.court_id} key={court_item.court_id}>
+              <option key={court_item.court_id} value={court_item.court_id} >
                 {court_item.name}
               </option>
             ))}
@@ -68,17 +74,27 @@ const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDat
         <div className="form-group p-2">
           <label>Date</label>
           {/* year-month-day */}
-          <input className="form-control" id="filterDate" type="date" defaultValue={date && (new Date(date*1000).toISOString().substr(0,10))}/>
+          <input 
+              className="form-control" 
+              id="filterDate" 
+              type="date" 
+              defaultValue={date && (new Date(date*1000).toISOString().substr(0,10))} 
+              data-testid="filter_input_date"/>
         </div>
        
 
       </Modal.Body>
       
       <Modal.Footer>
-        <button className='btn btn-secondary' onClick={handleClose}>
+        <button 
+            className='btn btn-secondary' 
+            onClick={handleClose}>
           Close
         </button>
-        <button className='btn btn-primary' onClick={() => applyFilter()}>
+        <button 
+            className='btn btn-primary' 
+            onClick={() => applyFilter()}
+            data-testid="filter_button_submit">
           Save Changes
         </button>
       </Modal.Footer>
