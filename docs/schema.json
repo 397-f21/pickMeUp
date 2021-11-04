@@ -139,8 +139,73 @@
                     "name":"PLEX"
                 }
             }
+        },
+        "idS2":{
+            "sport_id":"idS2",
+            "name":"Football",
+            "courts":{
+                "idC0":{
+                    "court_id":"idC0",
+                    "name":"SPAC"
+                },
+                "idC1":{
+                    "court_id":"idC1",
+                    "name":"Bobb"
+                },
+                "idC2":{
+                    "court_id":"idC2",
+                    "name":"Blomquist"
+                },
+                "idC3":{
+                    "court_id":"idC3",
+                    "name":"PLEX"
+                }
+            }
+        },
+        "idS3":{
+            "sport_id":"idS3",
+            "name":"Volleyball",
+            "courts":{
+                "idC0":{
+                    "court_id":"idC0",
+                    "name":"SPAC"
+                },
+                "idC1":{
+                    "court_id":"idC1",
+                    "name":"Bobb"
+                },
+                "idC2":{
+                    "court_id":"idC2",
+                    "name":"Blomquist"
+                },
+                "idC3":{
+                    "court_id":"idC3",
+                    "name":"PLEX"
+                }
+            }
+        },
+        "idS4":{
+            "sport_id":"idS4",
+            "name":"Frisbee",
+            "courts":{
+                "idC0":{
+                    "court_id":"idC0",
+                    "name":"SPAC"
+                },
+                "idC1":{
+                    "court_id":"idC1",
+                    "name":"Bobb"
+                },
+                "idC2":{
+                    "court_id":"idC2",
+                    "name":"Blomquist"
+                },
+                "idC3":{
+                    "court_id":"idC3",
+                    "name":"PLEX"
+                }
+            }
         }
-        
     }
     
 }

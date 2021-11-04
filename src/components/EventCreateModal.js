@@ -40,7 +40,7 @@ const pushEvent =  ( event ) => {
 }
 
 
-const EventCreateModal = ({data, event, user, handleClose, sport}) => {
+const EventCreateModal = ({data, user, handleClose, sport}) => {
   const [localSport, setLocalSport] =  useState(sport);
   const [localCourt, setLocalCourt] =  useState("");
   const [localDate, setLocalDate] =  useState("");
@@ -77,6 +77,10 @@ const EventCreateModal = ({data, event, user, handleClose, sport}) => {
       alert("Please select a Time Slot");
       return;
     }
+    if (!localCapacity) {
+      alert("Please select a Capacity");
+      return;
+    }
 
     /* create an event object and push it into firebase*/
 
@@ -85,7 +89,7 @@ const EventCreateModal = ({data, event, user, handleClose, sport}) => {
       date: localTime,
       sport_id: localSport,
       court_id: localCourt,
-      capacity: "",
+      capacity: Number(localCapacity),
       player_count: 0
     };
 
