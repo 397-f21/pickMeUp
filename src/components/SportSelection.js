@@ -15,7 +15,7 @@ const icons = {
 
 const SportSelection =({sports,setSport}) => (
   <>
-    <h1 className='text-center mb-5'>Choose your sports!</h1>
+    <h1 className='text-center mb-5' data-cy="sport-select">Choose your sports!</h1>
     <div className='container-sm d-flex flex-wrap justify-content-center' style = {{maxWidth:'800px'}}>
       {
         Object.values(sports).map(sport => (
