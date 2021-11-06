@@ -5,6 +5,7 @@ import EventList from "./components/EventList";
 import SportHeader from "./components/SportHeader";
 import SportSelection from "./components/SportSelection";
 import EventCreateModal from "./components/EventCreateModal";
+import PersonalEvents from "./components/PersonalEvents";
 
 function App() {
   const [data, loading, error] = useData("/")
@@ -15,6 +16,7 @@ function App() {
 
   const [showFilter, setShowFilter] = useState(false);
   const [showEventCreate, setShowEventCreate] = useState(false);
+  const [showPersonalEvents, setPersonalEvents] = useState(false);
 
   const handleCloseFilter = () => setShowFilter(false);
   const handleShowFilter = () => setShowFilter(true);
@@ -24,6 +26,8 @@ function App() {
 
   if (error) return <h1>{error}</h1>
   if (loading) return <h1>loading...</h1>
+  if (window.location.pathname === '/PersonalEvents') return <PersonalEvents data={data} user={user} />
+  console.log(window.location.pathname)
   if (!sport) return <SportSelection sports ={data.sports} setSport = {setSport}/> 
 
   return (
