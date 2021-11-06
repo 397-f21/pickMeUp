@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
 
         <Navbar.Toggle/>
 
-        <Navbar.Collapse className="justify-content-between" id="navbarNavAltMarkup">
+        <Navbar.Collapse className="justify-content-between text-center" id="navbarNavAltMarkup">
           <Nav>
             <Nav.Link className="nav-link" href="/" active={false}>Home</Nav.Link>
             <Nav.Link className="nav-link" href="/PersonalEvents" active={false}>My Events</Nav.Link>

@@ -20,7 +20,7 @@ const SportSelection =({sports,setSport}) => (
       {
         Object.values(sports).map(sport => (
           <div key={sport.sport_id}
-              className="card p-2 m-2 col-5 rounded" 
+              className="card p-2 m-2 col-lg-5 col-12 rounded" 
               style={{borderWidth:'5px'}}>
             {icons[sport.sport_id]}
             <div className="card-body">
