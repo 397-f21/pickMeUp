@@ -1,5 +1,7 @@
 import {signInWithGoogle, signOut, useUserState } from './firebase';
 import logo from './logo.svg';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 const SignInButton = () => (
   <button className="btn btn-secondary btn-sm"
@@ -18,23 +20,30 @@ const SignOutButton = () => (
 const Layout = ({ children }) => {
   const [user] = useUserState();
   return (
-  <div>
-    <div className='navbar navbar-light bg-warning bg-light'>
+    <div>
+    <Navbar expand="sm" collapseOnSelect>
       <div className='container-fluid'>
-        <a className='navbar-brand justify-content-bottom' href="/">
+        <Navbar.Brand href="/">
           <img src={ logo } alt="PickMeUp Logo" width="30" height="30" style={{marginTop: '-.4em', marginRight: '.2em'}}/>
           <span className="h2 fw-bold"> 
             PickMeUp 
           </span>
-        </a>
-        
-        {user ? <SignOutButton /> : <SignInButton />}
-      </div>
-    </div>
-    
-    { children }
+        </Navbar.Brand>
 
-  </div>  
+        <Navbar.Toggle/>
+
+        <Navbar.Collapse className="justify-content-between" id="navbarNavAltMarkup">
+          <Nav>
+            <Nav.Link className="nav-link" href="/" active={false}>Home</Nav.Link>
+            <Nav.Link className="nav-link" href="/PersonalEvents" active={false}>My Events</Nav.Link>
+          </Nav>
+          {user ? <SignOutButton /> : <SignInButton />}
+         </Navbar.Collapse>
+      </div>
+    
+    </Navbar>  
+    { children }
+  </div>
   );
 };
 
