@@ -24,12 +24,12 @@ const SportSelection =({sports,setSport}) => (
               style={{borderWidth:'5px'}}>
             {icons[sport.sport_id]}
             <div className="card-body">
-              <a  href="#"
+              <button href="#"
                   onClick={ () => setSport(sport.sport_id)} 
                   className="stretched-link btn btn-primary w-100"
                   data-cy={`sport-select-${sport.sport_id}`}>
                 {sport.name} 
-              </a>
+              </button>
             </div>
           </div>
         ))

@@ -16,7 +16,6 @@ function App() {
 
   const [showFilter, setShowFilter] = useState(false);
   const [showEventCreate, setShowEventCreate] = useState(false);
-  const [showPersonalEvents, setPersonalEvents] = useState(false);
 
   const handleCloseFilter = () => setShowFilter(false);
   const handleShowFilter = () => setShowFilter(true);
