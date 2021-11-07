@@ -11,8 +11,8 @@ const SignInButton = () => (
 );
 
 const SignOutButton = () => (
-  <button className="btn btn-secondary btn-sm"
-      onClick={() => signOut()}>
+  <button className="btn btn-outline-secondary btn-sm"
+      onClick={() => window.confirm("Are you sure you want to sign out?") && signOut()}>
     Sign Out
   </button>
 )
@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
   const [user] = useUserState();
   return (
     <div>
-    <Navbar expand="sm" collapseOnSelect>
+    <Navbar expand="sm" collapseOnSelect bg="light">
       <div className='container-fluid'>
         <Navbar.Brand href="/">
           <img src={ logo } alt="PickMeUp Logo" width="30" height="30" style={{marginTop: '-.4em', marginRight: '.2em'}}/>
