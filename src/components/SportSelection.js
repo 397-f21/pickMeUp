@@ -24,7 +24,7 @@ const SportSelection =({sports,setSport}) => (
               style={{borderWidth:'5px'}}>
             {icons[sport.sport_id]}
             <div className="card-body">
-              <button href="#"
+              <button 
                   onClick={ () => setSport(sport.sport_id)} 
                   className="stretched-link btn btn-primary w-100"
                   data-cy={`sport-select-${sport.sport_id}`}>
