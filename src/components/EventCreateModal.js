@@ -45,7 +45,7 @@ const EventCreateModal = ({data, user, handleClose, sport}) => {
   const [localCourt, setLocalCourt] =  useState("");
   const [localDate, setLocalDate] =  useState("");
   const [localTime, setLocalTime] =  useState("");
-  const [localCapacity, setLocalCapacity] =  useState("");
+  const [localCapacity, setLocalCapacity] =  useState(2);
 
 
   const createAndJoinEvent = () => {
