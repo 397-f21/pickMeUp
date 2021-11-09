@@ -18,7 +18,7 @@ const leave = (player_count, event_id,user,userEvents) => {
     updateDataByPath(`/events/${event_id}/`, {player_count: (player_count > 0) ? player_count-1 : 0})
 }
 
-const EventCard = ({data, event, user}) => (
+const EventCard = ({data, event, user, click}) => (
   <div className = 'col-lg-8 card m-2 p-1 mx-auto border-dark' key = {event.event_id}> 
     <div className = 'card-body d-flex align-items-center justify-content-between'>
       <div>
@@ -33,15 +33,15 @@ const EventCard = ({data, event, user}) => (
         </div>
       </div>
       <div className="d-flex flex-nowrap flex-column align-items-center">
-        <div className="mb-1">
+        <div data-testid="number" className="mb-1">
           { event.player_count } / {event.capacity}
           <FcSportsMode style={{height: '1.5em', width: '1.5em'}}/>
         </div>
         {
         ( user && data.users[user] && data.users[user].events && data.users[user].events.includes(event.event_id)) ? (
-          <button className='btn btn-warning bg-opacity-25' style={{width:"6em"}} onClick={ (ev) => leave(event.player_count, event.event_id, user, data.users[user].events) } >Leave</button>
+          <button data-testid="leave_button" className='btn btn-warning bg-opacity-25' style={{width:"6em"}} onClick={ (ev) => leave(event.player_count, event.event_id, user, data.users[user].events) } >Leave</button>
         ) :(event.player_count >= event.capacity) ? <span></span> : (
-          <button className='btn btn-success bg-opacity-25' style={{width:"6em"}} onClick={ (ev) => (!user) ? alert("Please log in to join the event") : join(event.player_count, event.event_id, user, data.users[user] && data.users[user].events) } >Join</button>
+          <button data-testid="join_button" className='btn btn-success bg-opacity-25' style={{width:"6em"}} onClick={ (ev) => (!user) ? alert("Please log in to join the event") : join(event.player_count, event.event_id, user, data.users[user] && data.users[user].events) } >Join</button>
         ) 
         }
       </div>
