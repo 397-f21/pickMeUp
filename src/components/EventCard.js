@@ -39,7 +39,7 @@ const EventCard = ({data, event, user}) => (
         </div>
         {
         ( user && data.users[user] && data.users[user].events && data.users[user].events.includes(event.event_id)) ? (
-          <button className='btn btn-warning bg-opacity-25' style={{width:"6em"}} onClick={ (ev) => leave(event.player_count, event.event_id, user, data.users[user].events) } >Leave</button>
+          <button className='btn btn-warning bg-opacity-25' data-testid='leave-btn' style={{width:"6em"}} onClick={ (ev) => leave(event.player_count, event.event_id, user, data.users[user].events) } >Leave</button>
         ) :(event.player_count >= event.capacity) ? <span></span> : (
           <button className='btn btn-success bg-opacity-25' style={{width:"6em"}} onClick={ (ev) => (!user) ? alert("Please log in to join the event") : join(event.player_count, event.event_id, user, data.users[user] && data.users[user].events) } >Join</button>
         ) 
