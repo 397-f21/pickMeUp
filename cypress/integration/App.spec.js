@@ -15,4 +15,9 @@ describe ('Test App', () => {
     cy.get('[data-cy=sport-select-idS0]').click();
     cy.get('[data-cy=sport-header]').should('contain' ,'Tennis');
   });
+
+  it('google login', () => {
+    cy.visit ('/');
+    cy.login();
+  });
 });
