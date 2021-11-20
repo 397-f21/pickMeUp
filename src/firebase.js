@@ -1,6 +1,6 @@
-import { initializeApp } from 'firebase/app';
-import { getDatabase, onValue, ref, set, push, update, remove } from 'firebase/database';
-import { getAuth, GoogleAuthProvider, onIdTokenChanged, signInWithPopup, signOut } from 'firebase/auth';
+import { initializeApp } from 'firebase9/app';
+import { getDatabase, onValue, ref, set, push, update, remove } from 'firebase9/database';
+import { getAuth, GoogleAuthProvider, onIdTokenChanged, signInWithPopup, signOut } from 'firebase9/auth';
 import { useEffect, useState } from 'react';
 
 const firebaseConfig = {

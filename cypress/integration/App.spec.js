@@ -20,4 +20,11 @@ describe ('Test App', () => {
     cy.visit ('/');
     cy.login();
   });
+
+  it('personal events', () => {
+    cy.visit ('/');
+    cy.login();
+    cy.visit('/PersonalEvents');
+    cy.get('[data-cy=personal-name]').should('contain' ,'S. Assign');
+  });
 });
