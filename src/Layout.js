@@ -34,8 +34,8 @@ const Layout = ({ children }) => {
 
         <Navbar.Collapse className="justify-content-between text-center" id="navbarNavAltMarkup">
           <Nav>
-            <Nav.Link className="nav-link" href="/" active={false}>Home</Nav.Link>
-            <Nav.Link className="nav-link" href="/PersonalEvents" active={false}>My Events</Nav.Link>
+            <Nav.Link cy-data='home' className="nav-link" href="/" active={false}>Home</Nav.Link>
+            <Nav.Link cy-data='myevent'className="nav-link" href="/PersonalEvents" active={false}>My Events</Nav.Link>
           </Nav>
           {user ? <SignOutButton /> : <SignInButton />}
          </Navbar.Collapse>

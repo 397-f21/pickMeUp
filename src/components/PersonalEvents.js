@@ -8,7 +8,7 @@ const PersonalEvents = ({data, user}) => {
         <h4 className='text-center mt-3' data-cy='personal-name'>{user.displayName}'s Events</h4>
         {(data.users[user.uid] && data.users[user.uid].events)
          ? data.users[user.uid].events.map((event_id, idx) => <EventCard data={data} event={data.events[event_id]} user={user.uid} key={idx}/> )
-        : <p className="text-center mt-3">You have no events. Go join some!</p>}
+        : <p data-cy = 'empty-header' className="text-center mt-3">You have no events. Go join some!</p>}
     </div>
     )
 };
