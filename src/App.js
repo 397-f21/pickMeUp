@@ -35,7 +35,7 @@ function App() {
       {sport && (<SportHeader data={data} sport={sport} />)}
 
       <div className="text-center">
-      <button className="btn btn-primary" onClick={handleShowFilter}>
+      <button className="btn btn-primary" onClick={handleShowFilter} data-cy="filter-events-button">
         Filter Events
       </button>
       {user && (

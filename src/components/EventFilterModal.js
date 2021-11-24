@@ -46,7 +46,8 @@ const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDat
               className="form-select" 
               onChange={ ev => {setLocalCourt(""); setLocalSport(ev.target.value)} } 
               value={ localSport } 
-              data-testid="filter_input_sport">
+              data-testid="filter_input_sport"
+              data-cy="filter-input-sport">
             {Object.values(data.sports).map(sport_item => (
               <option key={sport_item.sport_id} value={sport_item.sport_id} >
                 {sport_item.name}
@@ -94,7 +95,8 @@ const EventFilterModal = ({ data, sport, setSport, court, setCourt, date, setDat
         <button 
             className='btn btn-primary' 
             onClick={() => applyFilter()}
-            data-testid="filter_button_submit">
+            data-testid="filter_button_submit"
+            data-cy="filter-submit-button">
           Save Changes
         </button>
       </Modal.Footer>
