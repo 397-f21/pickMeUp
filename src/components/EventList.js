@@ -20,11 +20,13 @@ const filterEvents = (events, sport, court, date) => {
 const EventList = ({data, sport, court, date, user}) => {
   const filteredEvents = filterEvents(Object.values(data.events), sport, court, date)
   return filteredEvents.length === 0 ? <h4 className='text-center mt-5'> No events according to filters</h4> :
-    filteredEvents.map(event =>
-      <EventCard key={event.event_id} 
-        data={data} 
-        event={event} 
-        user={user} />)
+    <div data-test-id="count_el">
+      {filteredEvents.map(event =>
+        <EventCard key={event.event_id} 
+          data={data} 
+          event={event} 
+          user={user} />)}
+    </div>
     };
 
 export default EventList

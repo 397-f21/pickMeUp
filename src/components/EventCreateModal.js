@@ -115,7 +115,7 @@ const EventCreateModal = ({data, user, handleClose, sport}) => {
       <Modal.Body>
         
         <div className="form-group p-2">
-          <label>Sport</label>
+          <label data-cy="sport-label">Sport</label>
           <select className="form-select" 
               onChange={ ev => {setLocalCourt(""); setLocalSport(ev.target.value)} } 
               value={ localSport } >
@@ -129,7 +129,7 @@ const EventCreateModal = ({data, user, handleClose, sport}) => {
 
         <div className="form-group p-2">
           <label>Court</label>
-          <select className="form-select" 
+          <select data-cy="select-court" className="form-select" 
               onChange={ ev => setLocalCourt(ev.target.value) } 
               value={ localCourt }>
             <option value="" hidden></option>
@@ -147,12 +147,14 @@ const EventCreateModal = ({data, user, handleClose, sport}) => {
           <input type="date"
               className="form-control" 
               id="filterDate"  
-              onChange={ ev => setLocalDate(ev.target.value) } />
+              onChange={ ev => setLocalDate(ev.target.value) } 
+              data-cy="select-date"
+              />
         </div>
 
         <div className="form-group p-2">
           <label>Time</label>
-          <select className="form-select" onChange={ ev => setLocalTime(ev.target.value)} value={localTime}>
+          <select data-cy="select-time" className="form-select" onChange={ ev => setLocalTime(ev.target.value)} value={localTime}>
             <option value="" hidden></option>
             { getTimeIntervals(localDate).map(time => (
               <option value={ time } key={ time }>
@@ -164,7 +166,7 @@ const EventCreateModal = ({data, user, handleClose, sport}) => {
 
         <div className="form-group p-2">
           <label>Capacity</label>
-          <input type="number" className="form-control" defaultValue="2" min="2" onChange={ev => setLocalCapacity(ev.target.value)}/>
+          <input data-cy="select-capacity" type="number" className="form-control" defaultValue="2" min="2" onChange={ev => setLocalCapacity(ev.target.value)}/>
         </div>
        
       </Modal.Body>
@@ -173,7 +175,7 @@ const EventCreateModal = ({data, user, handleClose, sport}) => {
         <button className='btn btn-secondary' onClick={ handleClose }>
           Close
         </button>
-        <button className='btn btn-primary' onClick={ () => createAndJoinEvent() }>
+        <button data-test-id="create-eventFinal" className='btn btn-primary' onClick={ () => createAndJoinEvent() }>
           Create Event
         </button>
       </Modal.Footer>

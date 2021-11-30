@@ -39,7 +39,7 @@ function App() {
         Filter Events
       </button>
       {user && (
-        <button className="btn btn-primary mx-2" onClick={() => handleShowEventCreate()}>
+        <button data-test-id="create_event" className="btn btn-primary mx-2" onClick={() => handleShowEventCreate()}>
           Create Event
         </button>
       )}
