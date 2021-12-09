@@ -21,13 +21,6 @@ describe ('Test App', () => {
     cy.login();
   });
 
-  it('personal events', () => {
-    cy.visit ('/');
-    cy.login();
-    cy.visit('/PersonalEvents');
-    cy.get('[data-cy=personal-names]').should('contain' ,'S. Assign');
-  });
-
   it('create an basketball event using form', () => {
     cy.visit('/')
     cy.login();
