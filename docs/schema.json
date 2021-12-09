@@ -23,7 +23,7 @@
             "date":"1635355800",
             "sport_id":"idS0",
             "court_id":"idC0",
-            "capacity":"",
+            "capacity":2,
             "player_count": 1
         },
         "idE1":{
@@ -31,7 +31,7 @@
             "date":"1635355800",
             "sport_id":"idS0",
             "court_id":"idC1",
-            "capacity":"",
+            "capacity":4,
             "player_count": 2
         },
         "idE2":{
@@ -39,7 +39,7 @@
             "date":"1635370200",
             "sport_id":"idS0",
             "court_id":"idC2",
-            "capacity":"",
+            "capacity":2,
             "player_count": 1
         },
         "idE4":{
@@ -47,7 +47,7 @@
             "date":"1635370200",
             "sport_id":"idS1",
             "court_id":"idC0",
-            "capacity":"",
+            "capacity":10,
             "player_count": 8
         },
         "idE5":{
@@ -55,7 +55,7 @@
             "date":"1635372000",
             "sport_id":"idS1",
             "court_id":"idC1",
-            "capacity":"",
+            "capacity":6,
             "player_count": 4
         },
         "idE6":{
@@ -63,7 +63,7 @@
             "date":"1635375600",
             "sport_id":"idS1",
             "court_id":"idC0",
-            "capacity":"",
+            "capacity":10,
             "player_count": 9
         },
         "idE7":{
@@ -71,7 +71,7 @@
             "date":"1635355800",
             "sport_id":"idS1",
             "court_id":"idC3",
-            "capacity":"",
+            "capacity":4,
             "player_count": 3
         },
         "idE8":{
@@ -139,8 +139,73 @@
                     "name":"PLEX"
                 }
             }
+        },
+        "idS2":{
+            "sport_id":"idS2",
+            "name":"Football",
+            "courts":{
+                "idC0":{
+                    "court_id":"idC0",
+                    "name":"SPAC"
+                },
+                "idC1":{
+                    "court_id":"idC1",
+                    "name":"Bobb"
+                },
+                "idC2":{
+                    "court_id":"idC2",
+                    "name":"Blomquist"
+                },
+                "idC3":{
+                    "court_id":"idC3",
+                    "name":"PLEX"
+                }
+            }
+        },
+        "idS3":{
+            "sport_id":"idS3",
+            "name":"Volleyball",
+            "courts":{
+                "idC0":{
+                    "court_id":"idC0",
+                    "name":"SPAC"
+                },
+                "idC1":{
+                    "court_id":"idC1",
+                    "name":"Bobb"
+                },
+                "idC2":{
+                    "court_id":"idC2",
+                    "name":"Blomquist"
+                },
+                "idC3":{
+                    "court_id":"idC3",
+                    "name":"PLEX"
+                }
+            }
+        },
+        "idS4":{
+            "sport_id":"idS4",
+            "name":"Frisbee",
+            "courts":{
+                "idC0":{
+                    "court_id":"idC0",
+                    "name":"SPAC"
+                },
+                "idC1":{
+                    "court_id":"idC1",
+                    "name":"Bobb"
+                },
+                "idC2":{
+                    "court_id":"idC2",
+                    "name":"Blomquist"
+                },
+                "idC3":{
+                    "court_id":"idC3",
+                    "name":"PLEX"
+                }
+            }
         }
-        
     }
     
 }
